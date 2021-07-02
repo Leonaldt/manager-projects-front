@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
 
-## :information_source: First install all dependencies
+## :information_source: Install all dependencies
 
 ```bash
 npm install
