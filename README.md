@@ -30,5 +30,5 @@ This project was developed with the following technologies:
 
 
 ## Demo
-> This project has been hospeded in Heroku that is a cloud platform as a service
-- [ManagerProjects](https://manager-projects-front.herokuapp.com)
+> This project has been hospeded in the Heroku that is a cloud platform as a service
+[ManagerProjects](https://manager-projects-front.herokuapp.com)
