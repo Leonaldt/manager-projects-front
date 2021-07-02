@@ -29,5 +29,5 @@ This project was developed with the following technologies:
 -  [FlexLayout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 
-## Demo link [Manager Projects](https://manager-projects-front.herokuapp.com)
+## [Demo link Frontend](https://manager-projects-front.herokuapp.com)
 > This project has been hospeded in the Heroku that is a cloud platform as a service
