@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
+
+## :information_source: How to run
+
+```bash
+npm install && ng server
+```
+
 ## :rocket: Built with
 
 This project was developed with the following technologies:
@@ -15,6 +22,7 @@ This project was developed with the following technologies:
 -  [Nodemon](https://www.npmjs.com/package/nodemon)
 -  [Mongoose](https://mongoosejs.com/docs/)
 -  [MongoDB](https://docs.mongodb.com/)
+
 
 ## Demo link
 [ManagerProjects](https://manager-projects-front.herokuapp.com)
