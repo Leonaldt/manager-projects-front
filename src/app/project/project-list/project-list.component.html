@@ -1,0 +1,7 @@
+<mp-table
+    [data]="projects"
+    [columns]="columns"
+    (edit)="update($event)"
+    (delete)="openConfirmDialog($event)"
+    (calcInvest)="openCalculateInvestmentDialog($event)">
+</mp-table>

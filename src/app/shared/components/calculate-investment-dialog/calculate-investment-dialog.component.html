@@ -1,0 +1,28 @@
+<main>
+  <h1 mat-dialog-title>
+    Calcular Inventimento
+  </h1>
+
+  <div mat-dialog-content>
+    <span>Valor do Projeto: {{ data.value | currency:'BRL':true }}</span><br/>
+    <span style="color: #f44336;">Retorno do investimento: {{ returnOnInvestment | currency:'BRL':true }}</span>
+    <br/><br/>
+  </div>
+
+  <form role="form" [formGroup]="formInvestment">
+    <mat-form-field fxFlex="100">
+      <mat-label>Valor R$</mat-label>
+      <input matInput id="value" type="text" currencyMask formControlName="value"
+        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" placeholder="Insira o valor do projeto"
+        maxlength="15">
+        <mat-error *ngIf="negativeValue">
+          O valor do investimento não pode ser menor que o valor do projeto
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+  <div mat-dialog-actions style="display: flex; justify-content: flex-end;">
+    <button mat-button (click)="onDismiss()">Voltar</button>
+    <button mat-raised-button color="primary" (click)="calculate()">Cálcular</button>
+  </div>
+</main>

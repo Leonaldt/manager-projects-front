@@ -1,0 +1,74 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <form role="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+      <mat-card class="register-form mat-elevation-z8" flex="80">
+        <div>
+          <mat-card-title>{{ title }}</mat-card-title>
+
+          <mat-card-content fxLayout="column" fxLayoutAlign="space-around stretch">
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="100">
+                <input matInput type="text" formControlName="name" autocomplete="off" placeholder="Name">
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="48">
+                <mat-label>Data de inicío</mat-label>
+                <input matInput [matDatepicker]="start_date" formControlName="start_date">
+                <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+                <mat-datepicker #start_date></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field fxFlex="48">
+                <mat-label>Data de fim</mat-label>
+                <input matInput [matDatepicker]="end_date" formControlName="end_date">
+                <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+                <mat-datepicker #end_date></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="100">
+                <mat-chip-list #chipList formArrayName="participants">
+                  <mat-chip *ngFor="let participant of participantControls.value" [selectable]="selectable" [removable]="removable"
+                    (removed)="remove(participant)">
+                    {{ participant }}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="Participants"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-slider fxFlex="48" formControlName="risk" thumbLabel [displayWith]="formatLabel" tickInterval="1"
+                step="1" min="0" max="2" aria-label="units" class="cdk-focused">
+              </mat-slider>
+              <mat-form-field fxFlex="48">
+                <mat-label>Valor R$</mat-label>
+                <input matInput id="value" type="text" currencyMask formControlName="value"
+                  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" placeholder="Insira o valor do projeto"
+                  maxlength="15">
+                <mat-error matErrorMessages></mat-error>
+              </mat-form-field>
+            </div>
+
+          </mat-card-content>
+        </div>
+        <mat-label>Risco {{ formRegister.value.risk == 0 ? 'baixo' : formRegister.value.risk == 1 ? 'médio' : 'alto' }}</mat-label>
+
+        <mat-card-actions fxLayoutAlign="end">
+          <span></span>
+          <button mat-raised-button color="primary" type="submit" [class.spinner]="loading"
+            [disabled]="loading || formRegister.invalid">
+            <mat-icon>done</mat-icon>&nbsp;Register
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>
