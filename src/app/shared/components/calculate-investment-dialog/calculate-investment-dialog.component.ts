@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProjectService } from 'src/app/project/project.service';
 import { Risk } from '../../enum.risk';
 
 @Component({
@@ -17,18 +19,29 @@ export class CalculateInvestmentDialogComponent implements OnInit {
     'value': [0.00, [Validators.required]]
   });
 
+  project: any;
+
   constructor(
     public dialogRef: MatDialogRef<CalculateInvestmentDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private service: ProjectService
+  ) {
+    this.service.getById(data).subscribe(project => this.project = project);
+  }
 
   ngOnInit() { }
 
   onDismiss(): void { this.dialogRef.close(false); }
 
   calculate() {
-    switch (this.data.risk) {
+    if (this.formInvestment.value.value < this.project.value) {
+      this.snackBar.open('O valor do investimento não pode ser menor que o valor do projeto.', 'OK', { duration: 2000 });
+      return;
+    }
+
+    switch (this.project.risk) {
       case Risk.BAIXO:
         this.returnOnInvestment = (this.formInvestment.value.value * 5) / 100;
         break;

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProjectService {
 
-  url: string = 'http://localhost:3006/projects';
+  url: string = 'https://manager-projects-api.herokuapp.com/projects';
 
   constructor(private http: HttpClient) { }
 

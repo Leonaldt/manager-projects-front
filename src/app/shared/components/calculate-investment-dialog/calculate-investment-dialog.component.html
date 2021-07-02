@@ -4,8 +4,8 @@
   </h1>
 
   <div mat-dialog-content>
-    <span>Valor do Projeto: {{ data.value | currency:'BRL':true }}</span><br/>
-    <span style="color: #f44336;">Retorno do investimento: {{ returnOnInvestment | currency:'BRL':true }}</span>
+    <span>Valor do Projeto: {{ (project?.value || 0) | currency:'BRL':true }}</span><br/>
+    <span style="color: #f44336;">Retorno do investimento: {{ (returnOnInvestment || 0) | currency:'BRL':true }}</span>
     <br/><br/>
   </div>
 
@@ -15,9 +15,6 @@
       <input matInput id="value" type="text" currencyMask formControlName="value"
         [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" placeholder="Insira o valor do projeto"
         maxlength="15">
-        <mat-error *ngIf="negativeValue">
-          O valor do investimento não pode ser menor que o valor do projeto
-        </mat-error>
       </mat-form-field>
     </form>
 
