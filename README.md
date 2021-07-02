@@ -28,7 +28,7 @@ This project was developed with the following technologies:
 -  [SCSS]()
 -  [FlexLayout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-## [Link Github API](https://github.com/Leonaldt/manager-projects-api)
+## ↗️: [Link Github API](https://github.com/Leonaldt/manager-projects-api)
 
 ## [Demo link Frontend](https://manager-projects-front.herokuapp.com)
 > This project has been hospeded in the Heroku that is a cloud platform as a service
