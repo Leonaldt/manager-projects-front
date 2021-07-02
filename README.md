@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
 
-## :information_source: How to run
+## :information_source: First install all dependencies
 
 ```bash
-npm install && ng server
+npm install
 ```
 
 ## :rocket: Built with
