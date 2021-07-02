@@ -23,6 +23,9 @@ This project was developed with the following technologies:
 -  [Express](https://www.npmjs.com/package/express)
 -  [Angular](https://angular.io/docs)
 -  [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+-  [Javascript]
+-  [HTML]
+-  [SCSS]
 -  [FlexLayout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 
